@@ -12,7 +12,9 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "rethinkdb": "^2.3.3"
+    "jsonwebtoken": "^7.4.1",
+    "rethinkdb": "^2.3.3",
+    "thinky": "^2.3.8"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
