@@ -62,9 +62,29 @@ router.use(function(req, res, next) {
 	}
 });
 
-router.post('/new', function (req, res) {
-	var user = new User(req.body);
-	user.save().then(function(result) {
+router.post('/newclothingdata', function (req, res) {
+	var clothes = new ClothesData(req.body);
+	clothes.save().then(function(result) {
+		res.status(200).send(JSON.stringify(result));
+	})
+	.error(function(error) {
+		res.status(500).send({error: error.message});
+	});
+});
+
+router.post('/newshapedata', function (req, res) {
+	var shape = new ShapeTrackerData(req.body);
+	shape.save().then(function(result) {
+		res.status(200).send(JSON.stringify(result));
+	})
+	.error(function(error) {
+		res.status(500).send({error: error.message});
+	});
+});
+
+router.post('/newbuilderdata', function (req, res) {
+	var builder = new BuilderData(req.body);
+	builder.save().then(function(result) {
 		res.status(200).send(JSON.stringify(result));
 	})
 	.error(function(error) {
