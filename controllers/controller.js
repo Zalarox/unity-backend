@@ -5,7 +5,9 @@ var express = require('express'),
  jwt = require('jsonwebtoken'),
  connection = null,
  config = require('./../config'),
- User = require('./../models/User');
+ User = require('./../models/User'),
+ ShapeTrackerData = require('./../models/ShapeTrackerData'),
+ ClothesData = require('./../models/ClothesData');
 
 r.connect({ host: 'localhost', port: 28015 }, function(err, conn) {
   if(err) throw err;

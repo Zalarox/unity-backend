@@ -6,7 +6,7 @@ var ShapeTrackerData = thinky.createModel("ShapeTrackerData", {
     name: type.string(),
     score: type.number(),
     gametype: type.string(),
-    totalattempts: type.number(),
+    //totalattempts: type.number(),
     created: type.date().default(r.now())
 });
 
