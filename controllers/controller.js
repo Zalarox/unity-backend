@@ -7,6 +7,7 @@ var express = require('express'),
  config = require('./../config'),
  User = require('./../models/User'),
  ShapeTrackerData = require('./../models/ShapeTrackerData'),
+ ColourData = require('./../models/ColourData'),
  ClothesData = require('./../models/ClothesData');
 
 r.connect({ host: 'localhost', port: 28015 }, function(err, conn) {
@@ -64,6 +65,26 @@ router.post('/gettoken', function(req, res) {
 router.post('/newclothingdata', function (req, res) {
 	var clothes = new ClothesData(req.body);
 	clothes.save().then(function(result) {
+		res.status(200).send(JSON.stringify(result));
+	})
+	.error(function(error) {
+		res.status(500).send({error: error.message});
+	});
+});
+
+router.post('/colourcombination', function (req, res) {
+	var colours = new ColourData(req.body);
+	colours.save().then(function(result) {
+		res.status(200).send(JSON.stringify(result));
+	})
+	.error(function(error) {
+		res.status(500).send({error: error.message});
+	});
+});
+
+router.get('/colourcombination/:name', function(req, res) {
+	ColourData.filter({name: req.params.name}).run().then(function(result) {
+		console.log("result is " + JSON.stringify(result));
 		res.status(200).send(JSON.stringify(result));
 	})
 	.error(function(error) {
