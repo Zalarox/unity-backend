@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
+    "express": "^4.17.3",
     "jsonwebtoken": "^7.4.1",
     "rethinkdb": "^2.3.3",
     "thinky": "^2.3.8"
